@@ -49,7 +49,7 @@ class ModelsTest {
         val existing = entry("08:00", "15:00")
         assertThrows(IllegalArgumentException::class.java) { validateEntry(existing.copy(id = "other"), listOf(existing)) }
         assertThrows(IllegalArgumentException::class.java) { validateEntry(existing.copy(id = "other", start = stamp(day, "16:00"), end = null), listOf(existing.copy(end = null))) }
-        validateEntry(existing.copy(id = "other", start = stamp(day, "16:00"), end = stamp(day, "17:00")), listOf(existing))
+        validateEntry(existing.copy(id = "other", start = stamp(day, "16:00"), end = stamp(day, "17:00")), listOf(existing), now = stamp(day, "23:59"))
     }
     @Test fun invalidAndCrossDaySchedulesAreRejected() {
         assertThrows(IllegalArgumentException::class.java) { validateSchedule(plan(Slot("08:00", "12:00"), Slot("11:00", "15:00"))) }
@@ -98,4 +98,3 @@ class ModelsTest {
     }
     private fun unzip(bytes: ByteArray): Map<String, String> = ZipInputStream(bytes.inputStream()).use { zip -> buildMap { while (true) { val part = zip.nextEntry ?: break; put(part.name, zip.readBytes().toString(Charsets.UTF_8)) } } }
 }
-
