@@ -1,0 +1,14 @@
+.gradle/
+.kotlin/
+**/build/
+local.properties
+signing.properties
+*.jks
+*.keystore
+*.hprof
+.impeccable/mocks/
+.impeccable/review/
+.impeccable/*.log
+.impeccable/*.db
+.impeccable/*.py
+*.apk

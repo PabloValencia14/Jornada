@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-29T17:40:00+01:00",
+  "title": "Design System: Jornada",
+  "extensions": {
+    "colorMeta": {
+      "primary": { "role": "primary", "displayName": "Verde bosque" },
+      "background": { "role": "neutral", "displayName": "Marfil" }
+    },
+    "typographyMeta": { "display": { "displayName": "Hora", "purpose": "Hora local en la pantalla Hoy; escala Material 3." } },
+    "shadows": [],
+    "motion": [{ "name": "material-default", "value": "Material 3 component defaults", "purpose": "Feedback de estado, sin animaciones decorativas; escala de animación del sistema." }],
+    "breakpoints": [{ "name": "navigation-rail", "value": "700dp" }]
+  },
+  "components": [
+    { "name": "Fichaje", "kind": "button", "refersTo": "button-punch", "description": "Button Material 3 nativo. Mínimo 64dp de alto y radio 16dp." },
+    { "name": "Estado", "kind": "chip", "refersTo": "status", "description": "Surface Material 3 con texto; el color nunca comunica el estado por sí solo." }
+  ],
+  "narrative": {
+    "northStar": "Registro personal de jornadas",
+    "overview": "Interfaz nativa de operación, con lenguaje funcional y controles Android estándar.",
+    "keyCharacteristics": ["Marfil y verde", "Material 3", "Móvil primero", "Sin lemas"],
+    "rules": [{ "name": "Roles nativos", "body": "Usar MaterialTheme.colorScheme y la escala tipográfica Material 3.", "section": "colors" }],
+    "dos": ["Mostrar horas y motivos concretos", "Adaptar la navegación al ancho"],
+    "donts": ["Añadir propaganda", "Ocultar diferencias al justificarlas", "Inventar registros"]
+  }
+}
