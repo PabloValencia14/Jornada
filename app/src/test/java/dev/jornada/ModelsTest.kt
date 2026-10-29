@@ -93,7 +93,8 @@ class ModelsTest {
     }
     @Test fun missingSplitShiftIsVisibleWithoutInventingTime() {
         val data = Snapshot(listOf(entry("08:00", "13:00")), listOf(plan(Slot("08:00", "13:00"), Slot("16:00", "19:00"))))
-        val s = summarize(day, data, stamp(day, "20:00"))
+        val now = day.atTime(20, 0).atZone(ZoneId.systemDefault()).toInstant().toEpochMilli()
+        val s = summarize(day, data, now)
         assertEquals(1, s.missing); assertEquals(300L, s.worked); assertTrue(s.incident)
     }
     private fun unzip(bytes: ByteArray): Map<String, String> = ZipInputStream(bytes.inputStream()).use { zip -> buildMap { while (true) { val part = zip.nextEntry ?: break; put(part.name, zip.readBytes().toString(Charsets.UTF_8)) } } }
